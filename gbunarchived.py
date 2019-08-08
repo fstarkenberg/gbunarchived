@@ -66,9 +66,10 @@ open(pidfile, 'w').write(pid)
 # Check that ffmpeg is installed
 try:
     subprocess.check_call(['ffmpeg', '-h'], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-except subprocess.CalledProcessError as e:
-    print(e.message, e.args)
+except (FileNotFoundError, subprocess.CalledProcessError) as e:
+    print(e)
     print("is ffmpeg installed?")
+    sys.exit()
 
 try:
     live = current_live()
