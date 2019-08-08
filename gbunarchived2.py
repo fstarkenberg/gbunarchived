@@ -80,7 +80,7 @@ def download(data):
 
 # Handle pid file
 pid = str(os.getpid())
-pidfile = "/tmp/gbunarchived.pid"
+pidfile = "/tmp/gbunarchived2.pid"
 if os.path.isfile(pidfile):
     print("script already running, exiting...")
     print("if the script crashed, delete {} and run again".format(pidfile))
